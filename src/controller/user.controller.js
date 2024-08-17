@@ -8,7 +8,14 @@ class UserController {
     // 2.操作服务器
     const res = await createUser(user_name, password)
     // 3.返回数据
-    ctx.body = res.request.body
+    ctx.body = {
+      code: 0,
+      message: '用户注册成功',
+      result: {
+        id: res.id,
+        user_name: res.user_name,
+      }
+    }
   }
 
   // 用户登录
